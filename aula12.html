@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form javascript</title>
+    <link rel="stylesheet" href="./aula12.css">
+</head>
+<body>
+    
+    <div class="form-container"> 
+        <h2>Adicionar Dados</h2>
+        <input type="text" id="campo1" placeholder="Campo 1 (ex: Nome)"/>
+        <input type="text" id="campo2" placeholder="Campo 2 (ex: Email)"/>
+        <input type="text" id="campo3" placeholder="Campo 3 (ex: Idade)"/>
+    </div>
+    
+    <table id="tabelaDados"> 
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Thiago</td>
+                <td>Thiago@email</td>
+                <td>33</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+    <script>
+    
+
+    function adicionarLinha(){
+        //CAPTURANDO OS VALORES DOS CAMPOS HTML
+        const valor1 = document.getElementById('campo1').value.trim;
+        const valor1 = document.getElementById('campo2').value.trim;
+        const valor1 = document.getElementById('campo3').value.trim;
+
+        //VERIFICANDO SE TODOS OS CAMPOS ESTÃO PREENCHIDOS
+        if(valor1 === ''|| valor2 ==='' || valor3 ===''){
+            alert("Por favor, preencha todos os campos!")
+        }
+    }
+    </script>
+</html>
