@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>form javascript</title>
     <link rel="stylesheet" href="./aula12.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+
+  .form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f1f1f1;
+  }
+
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+    </style>
 </head>
 <body>
     
@@ -13,6 +71,7 @@
         <input type="text" id="campo1" placeholder="Campo 1 (ex: Nome)"/>
         <input type="text" id="campo2" placeholder="Campo 2 (ex: Email)"/>
         <input type="text" id="campo3" placeholder="Campo 3 (ex: Idade)"/>
+        <button onclick="adicionarLinha()">Adicionar a tabela</button>
     </div>
     
     <table id="tabelaDados"> 
@@ -39,14 +98,30 @@
 
     function adicionarLinha(){
         //CAPTURANDO OS VALORES DOS CAMPOS HTML
-        const valor1 = document.getElementById('campo1').value.trim;
-        const valor1 = document.getElementById('campo2').value.trim;
-        const valor1 = document.getElementById('campo3').value.trim;
+        const valor1 = document.getElementById('campo1').value.trim();
+        const valor2 = document.getElementById('campo2').value.trim();
+        const valor3 = document.getElementById('campo3').value.trim();
 
         //VERIFICANDO SE TODOS OS CAMPOS ESTÃO PREENCHIDOS
         if(valor1 === ''|| valor2 ==='' || valor3 ===''){
             alert("Por favor, preencha todos os campos!")
         }
+
+        const tabela = document.getElementById('tabelaDados').getElementsByTagName('tbody')[0];
+            const novaLinha = tabela.insertRow();
+
+            novaLinha.insertCell(0).textContent = valor1;
+            novaLinha.insertCell(1).textContent = valor2;
+            novaLinha.insertCell(2).textContent = valor3;
+
+            //LIMPAR OS CAMPOS APÓS ADICIONAR
+
+            document.getElementById('campo1').value = '';
+            document.getElementById('campo2').value = '';
+            document.getElementById('campo3').value = '';
+
+            //FOCAR NO PRIMEIRO CAMPO NOVAMENTE
+            document.getElementById('campo1').focus();
     }
     </script>
 </html>
